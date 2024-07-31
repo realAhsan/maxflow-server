@@ -25,8 +25,6 @@ const registerUser = async function (req, res, next) {
     const { name, email, password } = await req.body;
     console.log("req body", req.body);
 
-    // console.log("req body", name, email, password);
-
     const { error } = registerSchema.validate({
       name,
       email,
@@ -57,8 +55,9 @@ const registerUser = async function (req, res, next) {
     if (newUser) {
       const token = generateToken(newUser?._id);
       res.cookie("token", token, {
-        withCredentials: true,
-        httpOnly: false,
+        httpOnly: true,
+        secure: "production",
+        sameSite: "None",
       });
       return res.status(201).json({
         success: true,
