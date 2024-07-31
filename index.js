@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const path = require("path");
 require("./database");
 const app = express();
 const { userRouter } = require("./routes/user-routes");
@@ -12,11 +13,15 @@ const PORT = process.env.PORT || 3000;
 // Middleware setup
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: [
+      "http://localhost:5173",
+      "https://maxflow-server-production.up.railway.app/",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
+app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.use(express.json());
 
@@ -25,9 +30,7 @@ app.use("/user", userRouter);
 app.use("/task", taskRouter);
 
 app.get("/", (req, res) => {
-  res.send(`Welcome to MAXFLOW Backend Server! 
-    This API Provides API endpoint for Task management API
-    `);
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // Error handling middleware

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./images/flowtify.ico" />
+
+    <title>MAXFLOW API Documentation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #f7f8fc;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 50px;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .header img {
+        width: 100px;
+        margin-bottom: 20px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 2.5em;
+        color: #333;
+      }
+      .header p {
+        font-size: 1.2em;
+        color: #666;
+      }
+      .endpoint {
+        margin-bottom: 30px;
+      }
+      .endpoint h2 {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 10px;
+      }
+      .endpoint pre {
+        background-color: #f1f1f1;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+      .endpoint p {
+        font-size: 1em;
+        color: #555;
+      }
+      .endpoint code {
+        background-color: #f7f8fc;
+        padding: 2px 4px;
+        border-radius: 3px;
+        color: #c7254e;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="./images/logo.png" alt="MAXFLOW Logo" />
+        <h1>MAXFLOW API Documentation</h1>
+        <p>This API Provides API endpoints for MAXFLOW Application</p>
+      </div>
+
+      <div class="endpoint">
+        <h2>POST /user/register</h2>
+        <p>Register a new user.</p>
+        <pre><code>POST https://maxflow-server-production.up.railway.app/user/register</code></pre>
+        <p>Request body should contain the following fields:</p>
+        <pre><code>{
+    "username": "string",
+    "email": "string",
+    "password": "string"
+}</code></pre>
+      </div>
+      <div class="endpoint">
+        <h2>POST /user/login</h2>
+        <p>Log in a user.</p>
+        <pre><code>POST https://maxflow-server-production.up.railway.app/user/login</code></pre>
+        <p>Request body should contain the following fields:</p>
+        <pre><code>{
+    "email": "string",
+    "password": "string"
+}</code></pre>
+      </div>
+      <div class="endpoint">
+        <h2>GET /task/get/:userId</h2>
+        <p>Get all tasks for a user.</p>
+        <pre><code>GET https://maxflow-server-production.up.railway.app/task/get/:userId</code></pre>
+      </div>
+    </div>
+  </body>
+</html>
