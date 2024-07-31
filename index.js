@@ -16,7 +16,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://maxflow-server-production.up.railway.app",
-      "https://max-flow.vercel.app/",
+      "https://max-flow.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
