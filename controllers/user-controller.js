@@ -110,7 +110,9 @@ const loginUser = async (req, res, next) => {
     const token = generateToken(user?._id);
     res.cookie("token", token, {
       withCredentials: true,
-      httpOnly: false,
+      httpOnly: true,
+      secure: "production",
+      sameSite: "None",
     });
     return res.status(201).json({
       success: true,
