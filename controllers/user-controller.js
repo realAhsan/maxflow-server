@@ -130,8 +130,10 @@ const loginUser = async (req, res, next) => {
 async function logoutUser(req, res) {
   try {
     res.cookie("token", "", {
-      withCredentials: true,
-      httpOnly: false,
+      httpOnly: true,
+      secure: "production",
+      sameSite: "None",
+      expires: new Date(0),
     });
 
     return res.status(200).json({
