@@ -7,7 +7,7 @@ const userAuthVerification = async (req, res, next) => {
     console.log("Token recieved:", token);
     if (!token) {
       return res.json({
-        message: "Unauthorized",
+        message: "Unauthorized please provide a token",
         success: false,
       });
     }
