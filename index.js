@@ -25,7 +25,9 @@ app.use("/user", userRouter);
 app.use("/task", taskRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send(`Welcome to MAXFLOW Backend Server! 
+    This API Provides API endpoint for Task management API
+    `);
 });
 
 // Error handling middleware
