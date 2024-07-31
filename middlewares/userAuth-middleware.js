@@ -4,6 +4,7 @@ const User = require("../models/user");
 const userAuthVerification = async (req, res, next) => {
   try {
     const token = req.cookies.token;
+    console.log("Token recieved:", token);
     if (!token) {
       return res.json({
         message: "Unauthorized",
@@ -22,7 +23,7 @@ const userAuthVerification = async (req, res, next) => {
         }
       } catch (error) {
         return res.json({
-          message: "Unauthorized",
+          message: "Unauthorized token provided is incorrect",
           success: false,
         });
       }
